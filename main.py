@@ -3,22 +3,19 @@ from constants import *
 
 def main():
     pygame.init
-
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT)) # Initialize screen
-
-    print("Starting Asteroids!") 
-    print(f"Screen width: {SCREEN_WIDTH}")
-    print(f"Screen height: {SCREEN_HEIGHT}")
+    clock = pygame.time.Clock() # Create clock
+    dt = 0 
 
     while True: # infinite while loop
         for event in pygame.event.get(): # Can close screen now
             if event.type == pygame.QUIT:
                 return
-
-        pygame.Surface.fill(screen, color=(0,0,0)) # black screen
+            
+        screen.fill("black") # black screen
         pygame.display.flip() # refresh
-    
 
+        dt = clock.tick(60) / 1000 # Update dt and 60 fps
 
 if __name__ == "__main__":
     main()
